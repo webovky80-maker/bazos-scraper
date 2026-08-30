@@ -1,4 +1,4 @@
-# 🇸🇰🇨🇿 Bazoš Scraper – Ads, Prices & Seller Contacts from Bazos.sk & Bazos.cz
+# Bazoš Scraper – Ads, Prices & Seller Contacts from Bazos.sk & Bazos.cz
 
 Extract classified ads from [Bazoš.sk](https://www.bazos.sk) and [Bazoš.cz](https://www.bazos.cz) — Slovakia's and Czechia's most popular free classifieds sites. Get **titles, prices, descriptions, locations, photos, and seller contacts** (phone & e-mail) for any keyword or category, no coding required.
 
