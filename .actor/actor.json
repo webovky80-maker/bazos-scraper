@@ -1,0 +1,12 @@
+{
+    "actorSpecification": 1,
+    "name": "bazos-cz-sk-scraper",
+    "title": "Bazoš.cz / Bazoš.sk Scraper",
+    "description": "Scrape classified ads from Bazoš.cz and Bazoš.sk.",
+    "version": "1.0",
+    "input": "./input_schema.json",
+    "storages": {
+        "dataset": "./output_schema.json"
+    },
+    "dockerfile": "../Dockerfile"
+}
