@@ -1,0 +1,147 @@
+{
+    "title": "Bazoš scraper input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "country": {
+            "title": "Country",
+            "type": "string",
+            "description": "Bazoš country site to scrape.",
+            "editor": "select",
+            "enum": ["sk", "cz"],
+            "enumTitles": ["Slovakia (bazos.sk)", "Czech Republic (bazos.cz)"],
+            "default": "sk"
+        },
+        "searchQuery": {
+            "title": "Search query",
+            "type": "string",
+            "description": "Keyword(s) to search for, e.g. \"iphone\". Leave empty to list all ads in the category.",
+            "editor": "textfield",
+            "default": ""
+        },
+        "category": {
+            "title": "Category",
+            "type": "string",
+            "description": "Ad category to search in.",
+            "editor": "select",
+            "enum": [
+                "all",
+                "auto",
+                "motocykle",
+                "reality",
+                "praca",
+                "zvierata",
+                "dom",
+                "elektro",
+                "mobil",
+                "pc",
+                "foto",
+                "stroje",
+                "deti",
+                "oblecenie",
+                "sport",
+                "hudba",
+                "knihy",
+                "nabytok",
+                "sluzby",
+                "vstupenky",
+                "ostatne"
+            ],
+            "enumTitles": [
+                "All categories",
+                "Cars",
+                "Motorcycles",
+                "Real estate",
+                "Jobs",
+                "Animals",
+                "House & garden",
+                "Electronics",
+                "Mobile phones",
+                "Computers",
+                "Photo & camera",
+                "Machines & tools",
+                "Kids",
+                "Clothing",
+                "Sport",
+                "Music",
+                "Books",
+                "Furniture",
+                "Services",
+                "Tickets",
+                "Other"
+            ],
+            "default": "all"
+        },
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "Optional list of Bazoš listing or ad detail URLs to start from instead of building a search URL from the fields above.",
+            "editor": "requestListSources",
+            "default": []
+        },
+        "priceMin": {
+            "title": "Minimum price",
+            "type": "integer",
+            "description": "Only return ads priced at or above this amount.",
+            "editor": "number"
+        },
+        "priceMax": {
+            "title": "Maximum price",
+            "type": "integer",
+            "description": "Only return ads priced at or below this amount.",
+            "editor": "number"
+        },
+        "zipCode": {
+            "title": "ZIP code",
+            "type": "string",
+            "description": "ZIP/postal code to search around. Used together with Radius.",
+            "editor": "textfield",
+            "default": ""
+        },
+        "radiusKm": {
+            "title": "Radius (km)",
+            "type": "integer",
+            "description": "Search radius in kilometers around the ZIP code. Only applied when ZIP code is set.",
+            "editor": "number",
+            "default": 25
+        },
+        "sort": {
+            "title": "Sort order",
+            "type": "string",
+            "description": "Order in which ads are listed.",
+            "editor": "select",
+            "enum": ["newest", "cheapest", "most_expensive"],
+            "enumTitles": ["Newest first", "Cheapest first", "Most expensive first"],
+            "default": "newest"
+        },
+        "maxItems": {
+            "title": "Max items",
+            "type": "integer",
+            "description": "Maximum number of ads to scrape.",
+            "editor": "number",
+            "default": 100
+        },
+        "scrapeDetails": {
+            "title": "Scrape ad details",
+            "type": "boolean",
+            "description": "If enabled, each ad's detail page is also visited to extract additional fields (full description, images, seller info, GPS coordinates, etc). Slower but more complete.",
+            "editor": "checkbox",
+            "default": false
+        },
+        "maxConcurrency": {
+            "title": "Max concurrency",
+            "type": "integer",
+            "description": "Maximum number of pages processed in parallel.",
+            "editor": "number",
+            "default": 5
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Proxy settings used for making requests to Bazoš.",
+            "editor": "proxy",
+            "default": { "useApifyProxy": true }
+        }
+    },
+    "required": []
+}
