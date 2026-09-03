@@ -1,72 +1,13 @@
 {
-    "actorSpecification": 1,
-    "fields": {
-        "type": "object",
-        "properties": {
-            "id": { "type": ["string", "null"], "description": "Bazoš ad ID." },
-            "url": { "type": "string", "description": "URL of the ad detail page." },
-            "title": { "type": ["string", "null"], "description": "Ad title." },
-            "price": { "type": ["number", "null"], "description": "Numeric price, or null when not a fixed number." },
-            "priceText": { "type": ["string", "null"], "description": "Price as shown on the page." },
-            "priceType": { "type": ["string", "null"], "description": "One of fixed, agreement, in_text, free, other." },
-            "currency": { "type": "string", "description": "EUR for bazos.sk, CZK for bazos.cz." },
-            "location": { "type": ["string", "null"], "description": "City/region as shown on the ad." },
-            "zipCode": { "type": ["string", "null"], "description": "ZIP/postal code." },
-            "latitude": { "type": ["number", "null"] },
-            "longitude": { "type": ["number", "null"] },
-            "postedAt": { "type": ["string", "null"], "description": "Date the ad was posted (YYYY-MM-DD)." },
-            "isTop": { "type": "boolean", "description": "Whether the ad is a highlighted TOP ad." },
-            "topUntil": { "type": ["string", "null"], "description": "Date the TOP status expires (YYYY-MM-DD)." },
-            "views": { "type": ["number", "null"] },
-            "description": { "type": ["string", "null"] },
-            "phone": { "type": ["string", "null"], "description": "First phone number found in the ad text." },
-            "phones": { "type": "array", "items": { "type": "string" } },
-            "email": { "type": ["string", "null"], "description": "First e-mail address found in the ad text." },
-            "emails": { "type": "array", "items": { "type": "string" } },
-            "mainImage": { "type": ["string", "null"] },
-            "images": { "type": "array", "items": { "type": "string" }, "description": "All ad images (only populated when scrapeDetails is enabled)." },
-            "imagesCount": { "type": ["number", "null"] },
-            "category": { "type": ["string", "null"], "description": "Bazoš category slug." },
-            "country": { "type": "string", "description": "sk or cz." },
-            "sellerName": { "type": ["string", "null"] },
-            "sellerId": { "type": ["string", "null"] },
-            "sellerRatingToken": { "type": ["string", "null"] },
-            "phoneMasked": { "type": ["string", "null"], "description": "Masked phone prefix shown before revealing the full number." },
-            "scrapedAt": { "type": "string", "description": "ISO timestamp of when the item was scraped." }
-        }
-    },
-    "views": {
-        "overview": {
-            "title": "Overview",
-            "transformation": {
-                "fields": [
-                    "title",
-                    "price",
-                    "priceText",
-                    "currency",
-                    "location",
-                    "postedAt",
-                    "isTop",
-                    "phone",
-                    "email",
-                    "url"
-                ]
-            },
-            "display": {
-                "component": "table",
-                "properties": {
-                    "title": { "label": "Title", "format": "text" },
-                    "price": { "label": "Price", "format": "number" },
-                    "priceText": { "label": "Price text", "format": "text" },
-                    "currency": { "label": "Currency", "format": "text" },
-                    "location": { "label": "Location", "format": "text" },
-                    "postedAt": { "label": "Posted", "format": "date" },
-                    "isTop": { "label": "Top ad", "format": "boolean" },
-                    "phone": { "label": "Phone", "format": "text" },
-                    "email": { "label": "E-mail", "format": "text" },
-                    "url": { "label": "URL", "format": "link" }
-                }
-            }
+    "actorOutputSchemaVersion": 1,
+    "title": "Bazoš scraper output",
+    "description": "Scraped ads are stored as items in the Actor's default dataset.",
+    "properties": {
+        "ads": {
+            "type": "string",
+            "title": "Scraped ads",
+            "description": "Ad listings scraped from Bazoš, one item per ad.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
         }
     }
 }
